@@ -11,7 +11,6 @@ cd /opt
 sudo chown -R root:root sublime
 sudo chmod -R +r sublime
 
-
 sudo ḿv ./sublime_text /usr/bin/sublime_text
 sudo chmod 775 /usr/bin/sublime_text
 
