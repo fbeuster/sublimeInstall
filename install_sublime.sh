@@ -1,9 +1,9 @@
 #!/bin/bash
 
-wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.1%20x64.tar.bz2
+wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
 cd ~/Downloads
-tar -jxvf Sublime\ Text\ 2\ 2.0.1\ x64.tar.bz2
-rm Sublime\ Text\	2\ 2.0.1\ x64.tar.bz2
+tar -jxvf Sublime\ Text\ 2\ 2.0.2\ x64.tar.bz2
+rm Sublime\ Text\	2\ 2.0.2\ x64.tar.bz2
 
 sudo mv Sublime\ Text\ 2 sublime
 sudo mv sublime /opt/
