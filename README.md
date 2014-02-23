@@ -1,19 +1,19 @@
 sublimeInstall
 ==============
 
-To use Sublime Text 2 as default text editor, add this to the "~/.local/share/applications/mimeapps.list" under defaults:
+Installation script for Sublime Text 2, some configuration to access the editor
+via command line and menus and adding it as default editor.
+
+Execute installation by calling
 
 ```
-application/x-perl=sublime.desktop
-text/plain=sublime.desktop
-text/x-chdr=sublime.desktop
-text/x-csrc=sublime.desktop
-text/x-dtd=sublime.desktop
-text/x-java=sublime.desktop
-text/mathml=sublime.desktop
-text/x-python=sublime.desktop
-text/x-sql=sublime.desktop
-text/xml=sublime.desktop
+$ ./install_sublime
 ```
 
-I will implement that in the next few days or weeks to the install script. Has no priority for me at the moment.
+Possible flags
+
+```
+-d : not setting it as default editor
+```
+
+More to come.
