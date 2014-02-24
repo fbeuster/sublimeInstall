@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/beusterse.tmTheme",
+	"dictionary": "Packages/Language - German/German_de_DE.dic",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_full_path": false
+}

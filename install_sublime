@@ -16,6 +16,12 @@ echo " <{ Installation of Sublime Text 2 }> \n"
 dir=$(dirname -- $(readlink -fn -- "$0"))
 
 echo ">>> begin download of Sublime Text 2\n"
+if [[ !$(wget --spider -q http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2) ]]
+then
+	echo "ERROR: Unable to download SUblime Text 2."
+	echo "Exiting."
+	exit 1
+fi
 wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
 echo "<<< end download\n"
 
@@ -32,9 +38,9 @@ sudo chmod -R +r sublime
 echo "<<< end extract and move\n"
 
 echo ">>> begin configuration\n"
+cd $dir
 
 echo " > create terminal access"
-cd $dir
 sudo cp sublime_text /usr/bin/sublime_text
 sudo chmod 775 /usr/bin/sublime_text
 
@@ -67,6 +73,50 @@ then
 			sed -r 's/(\[Added Associations\])/'${pattern}'=sublime.desktop\n\n\1/' -i $defFile
 		fi
 	done
+fi
+
+echo " > installing package control"
+if [[ !$(wget https://sublime.wbond.net/Package%20Control.sublime-package) ]]
+then
+	echo "ERROR: Could not download Package Control."
+	echo " You have to install it and all packeges manually. See Readme."
+else
+	wget -q https://sublime.wbond.net/Package%20Control.sublime-package
+	mv Package\ Control.sublime-package ~/.config/sublime-text-2/Packages/Package\ Control.sublime-package
+
+	echo " > installing packages"
+
+	# Theme and user seetings
+	cp -R Packages/ ~/.config/sublime-text-2/
+	echo "   - moved theme and defaults"
+
+	# SFTP
+	echo "   - NOTE: Don't forget SFTP, via Package Control!"
+
+	# ColorHighlighter
+	git clone https://github.com/Monnoroch/ColorHighlighter.git
+	rm -Rf ColorHighlighter/.git
+	mv ColorHighlighter ~/.config/sublime-text-2/Packages/
+	echo "   - moved ColorHighlighter"
+
+	# ColorPicker
+	git clone https://github.com/weslly/ColorPicker.git
+	rm -Rf ColorPicker/.git
+	mv ColorPicker ~/.config/sublime-text-2/Packages/
+	echo "   - moved ColorPicker"
+
+	# jQuery (some snippets)
+	git clone https://github.com/SublimeText/jQuery.git
+	rm -Rf jQuery/.git
+	mv jQuery ~/.config/sublime-text-2/Packages/
+	echo "   - moved jQuery"
+
+	# PHPDoc
+	git clone https://github.com/SublimeText/PhpDoc.git
+	rm -Rf PhpDoc/.git
+	mv PhpDoc ~/.config/sublime-text-2/Packages/
+	echo "   - moved PHPDoc"
+
 fi
 
 echo "<<< end configuration\n"
