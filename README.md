@@ -28,4 +28,10 @@ The following packages were installed via script or Package Control:
 * [ColorPicker](https://github.com/weslly/ColorPicker.git)
 * [PHPDoc](https://github.com/SublimeText/PhpDoc.git)
 
+ToDo
+----
+
+On my main computer I can use Sublime Text as LaTeX Editor and compiler.
+So I need to implement this here as well :)
+
 More to come.
