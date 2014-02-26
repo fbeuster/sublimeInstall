@@ -35,10 +35,4 @@ Notes
 
 Installation of LaTeXTools will require sudo access. If you don't have that, use the `-l` flag.
 
-ToDo
-----
-
-On my main computer I can use Sublime Text as LaTeX Editor and compiler.
-So I need to implement this here as well :)
-
 More to come.
