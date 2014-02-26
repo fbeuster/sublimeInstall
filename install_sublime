@@ -2,12 +2,13 @@
 
 # flag handling
 default=true
+latex=true
 
-for i in $*
-do
-	case $i in
-		"-d") default=false
-		;;
+while getopts ":dl" opt; do
+	case $opt in
+		d)	default=false	;;
+		l)	latex=false	;;
+		\?)	;;
 	esac
 done
 
@@ -110,6 +111,16 @@ else
 	rm -Rf jQuery/.git
 	mv jQuery ~/.config/sublime-text-2/Packages/
 	echo "   - moved jQuery"
+
+	# LaTeXTools
+	if [ $latex = true ]
+	then
+		sudo apt-get install texlive latexmk
+		git clone https://github.com/SublimeText/LaTeXTools.git
+		rm -Rf LaTeXTools/.git
+		mv LaTeXTools ~/-config/sublime-text-2/Packages/
+		echo "   - moved LaTeXTools"
+	fi
 
 	# PHPDoc
 	git clone https://github.com/SublimeText/PhpDoc.git
