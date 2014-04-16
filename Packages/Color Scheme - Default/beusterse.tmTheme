@@ -6,11 +6,62 @@
 	<string>beuster|se Theme</string>
 	<key>settings</key>
 	<array>
+<dict>
+<key>name</key>
+<string>mon_color</string>
+<key>scope</key>
+<string>mcol_ff0000FF</string>
+<key>settings</key>
+<dict>
+<key>background</key>
+<string>#ff0000FF</string>
+<key>caret</key>
+<string>#FFFFFFFF</string>
+<key>foreground</key>
+<string>#FFFFFFFF</string>
+</dict>
+</dict>
+
+
+<dict>
+<key>name</key>
+<string>mon_color</string>
+<key>scope</key>
+<string>mcol_CEDF99FF</string>
+<key>settings</key>
+<dict>
+<key>background</key>
+<string>#CEDF99FF</string>
+<key>caret</key>
+<string>#000000FF</string>
+<key>foreground</key>
+<string>#000000FF</string>
+</dict>
+</dict>
+
+
+<dict>
+<key>name</key>
+<string>mon_color</string>
+<key>scope</key>
+<string>mcol_3F3F3FFF</string>
+<key>settings</key>
+<dict>
+<key>background</key>
+<string>#3F3F3FFF</string>
+<key>caret</key>
+<string>#FFFFFFFF</string>
+<key>foreground</key>
+<string>#FFFFFFFF</string>
+</dict>
+</dict>
+
+
 		<dict>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#3F3F3F</string>
+				<string>#3a3a3a</string>
 				<key>caret</key>
 				<string>#F8F8F0</string>
 				<key>foreground</key>
@@ -86,7 +137,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#DCDCCC</string>
+				<string>#CC9CC0</string>
+				<key>fontStyle</key>
+				<string>bold</string>
 			</dict>
 		</dict>
 		<dict>
@@ -97,7 +150,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#DCDCCC</string>
+				<string>#DCBCC0</string>
 			</dict>
 		</dict>
 		<dict>
@@ -173,7 +226,7 @@
 				<key>fontStyle</key>
 				<string>italic underline</string>
 				<key>foreground</key>
-				<string>#DCDCCC</string>
+				<string>#CCDCC0</string>
 			</dict>
 		</dict>
 		<dict>
@@ -199,7 +252,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#FD971F</string>
+				<string>#e0770F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -238,7 +291,7 @@
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#DCDCCC</string>
+				<string>#CCDCC0</string>
 			</dict>
 		</dict>
 		<dict>
@@ -264,7 +317,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#DCDCCC</string>
+				<string>#CCDCC0</string>
 			</dict>
 		</dict>
 		<dict>

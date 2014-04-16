@@ -35,4 +35,12 @@ Notes
 
 Installation of LaTeXTools will require sudo access. If you don't have that, use the `-l` flag.
 
-More to come.
+ToDo
+----
+
+The following packages are going to be implemented soon:
+* ColorSchemeEditor
+* Emmet
+* More Layouts
+* QouteHTML
+* Theme - Brogrammer

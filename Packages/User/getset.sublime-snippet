@@ -1,0 +1,51 @@
+<snippet>
+    <content><![CDATA[/**
+ * getter for ${1:$SELECTION}
+ * @return ${3:type}
+ */
+public function get${1/(^|_)(\w)/\U$2/g}() { return \$this->$1; }
+
+/**
+ * setter for $1
+ * @param ${3:type} \$$1 to set
+ */
+public function set${1/(^|_)(\w)/\U$2/g}(\$$1) { \$this->$1 = \$$1; }
+
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>gs</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.php</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>Create getter and setter methods</description>
+</snippet>
+
+<!--
+
+	<snippet>
+    <content><![CDATA[/**
+ * getter for ${1:$SELECTION}
+ * @return ${3:type}
+ */
+public function get${1/(?:^|_)(w)/U$1$2/g$1}() {
+    return $this->$1;
+}
+
+/**
+ * setter for $1
+ * @param ${3:type} $${1/_(w)/U$1/g$1} Value to set
+ */
+public function set${1/(?:^|_)(w)/U$1$2/g$1}($${1/_(w)/U$1/g$1}) {
+    $this->$1 = $${1/_(w)/U$1/g$1};
+}
+
+]]></content>
+    <!-- Optional: Tab trigger to activate the snippet --
+    <tabTrigger>gs</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in --
+    <scope>source.php</scope>
+    <!-- Optional: Description to show in the menu --
+    <description>Create getter and setter methods</description>
+</snippet>
+
+-->
