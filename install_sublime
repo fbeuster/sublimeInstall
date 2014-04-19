@@ -162,6 +162,14 @@ else
 	mv brogrammer-theme/* ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer/
 	echo "   - moved Theme - Brogrammer"
 
+	cat >~/.config/sublime-text-2/Packages/Theme\ -\ Default/Widget.sublime-settings <<EOF
+{
+	"color_scheme": "Packages/Theme - Brogrammer/Widgets.stTheme"
+}
+EOF
+	echo "   - configured Theme - Brogrammer"
+
+
 fi
 
 echo "<<< end configuration\n"
