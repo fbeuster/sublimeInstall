@@ -6,5 +6,6 @@
 	[
 		"Vintage"
 	],
-	"show_full_path": false
+	"show_full_path": false,
+  	"theme": "Brogrammer.sublime-theme"
 }

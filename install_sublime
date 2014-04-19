@@ -106,6 +106,19 @@ else
 	mv ColorPicker ~/.config/sublime-text-2/Packages/
 	echo "   - moved ColorPicker"
 
+	# ColorSchemeEditor
+	git clone https://github.com/bobef/ColorSchemeEditor.git
+	rm -Rf ColorSchemeEditor/.git
+	mv ColorSchemeEditor ~/.config/sublime-text-2/Packages/
+	echo "   - moved ColorSchemeEditor"
+
+	# Emmet
+	git clone https://github.com/sergeche/emmet-sublime.git
+	rm -Rf emmet-sublime/.git
+	mkdir ~/.config/sublime-text-2/Packages/Emmet
+	mv emmet-sublime/* ~/.config/sublime-text-2/Packages/Emmet/
+	echo "   - moved Emmet"
+
 	# jQuery (some snippets)
 	git clone https://github.com/SublimeText/jQuery.git
 	rm -Rf jQuery/.git
@@ -122,11 +135,32 @@ else
 		echo "   - moved LaTeXTools"
 	fi
 
+	# More Layouts
+	git clone https://github.com/unknownuser88/morelayouts.git
+	rm -Rf morelayouts/.git
+	mkdir ~/.config/sublime-text-2/Packages/More\ Layouts
+	mv morelayouts/* ~/.config/sublime-text-2/Packages/More\ Layouts/
+	echo "   - moved More Layouts"
+
 	# PHPDoc
 	git clone https://github.com/SublimeText/PhpDoc.git
 	rm -Rf PhpDoc/.git
 	mv PhpDoc ~/.config/sublime-text-2/Packages/
 	echo "   - moved PHPDoc"
+
+	# QuoteHTML
+	git clone https://github.com/mutian/Sublime-Quote-HTML.git
+	rm -Rf Sublime-Quote-HTML/.git
+	mkdir ~/.config/sublime-text-2/Packages/QuoteHTML
+	mv Sublime-Quote-HTML/* ~/.config/sublime-text-2/Packages/QuoteHTML/
+	echo "   - moved QuoteHTML"
+
+	# Theme - Brogrammer
+	git clone https://github.com/FBeuster/brogrammer-theme.git
+	rm -Rf brogrammer-theme/.git
+	mkdir ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer
+	mv brogrammer-theme/* ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer/
+	echo "   - moved Theme - Brogrammer"
 
 fi
 
