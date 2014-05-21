@@ -1,13 +1,18 @@
 #!/bin/bash
 
+# urls
+x86=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
+x64=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
+sUrl=x64
 # flag handling
 default=true
 latex=true
 
-while getopts ":dl" opt; do
+while getopts ":dlx86" opt; do
 	case $opt in
 		d)	default=false	;;
 		l)	latex=false	;;
+		x86) sUrl=$x86
 		\?)	;;
 	esac
 done
@@ -17,13 +22,13 @@ echo " <{ Installation of Sublime Text 2 }> \n"
 dir=$(dirname -- $(readlink -fn -- "$0"))
 
 echo ">>> begin download of Sublime Text 2\n"
-if [[ !$(wget --spider -q http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2) ]]
+if [[ !$(wget --spider -q $sUrl) ]]
 then
 	echo "ERROR: Unable to download SUblime Text 2."
 	echo "Exiting."
 	exit 1
 fi
-wget http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
+wget $sUrl
 echo "<<< end download\n"
 
 echo ">>> begin extrect archive and move files\n"

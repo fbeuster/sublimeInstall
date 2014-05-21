@@ -13,8 +13,9 @@ $ ./install_sublime
 Possible flags
 
 ```
--d : not setting it as default editor
--l : don't install LaTeXTools
+-d   : not setting it as default editor
+-l   : don't install LaTeXTools
+-x86 : use 32bit
 ```
 
 Packages
