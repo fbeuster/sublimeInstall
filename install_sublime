@@ -3,16 +3,20 @@
 # urls
 x86=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
 x64=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
-sUrl=x64
+sUrl=$x64
+
 # flag handling
 default=true
 latex=true
+x86f=false
 
-while getopts ":dlx86" opt; do
+while getopts ":dlx" opt; do
 	case $opt in
 		d)	default=false	;;
 		l)	latex=false	;;
-		x86) sUrl=$x86
+		x)
+			sUrl=$x86
+			x86f=true	;;
 		\?)	;;
 	esac
 done
@@ -22,9 +26,9 @@ echo " <{ Installation of Sublime Text 2 }> \n"
 dir=$(dirname -- $(readlink -fn -- "$0"))
 
 echo ">>> begin download of Sublime Text 2\n"
-if wget --spider $sUrl 2>&1 | grep --quiet "200 OK"
+if ! wget --spider $sUrl 2>&1 | grep --quiet "200 OK"
 then
-	echo "ERROR: Unable to download SUblime Text 2."
+	echo "ERROR: Unable to download Sublime Text 2."
 	echo "Exiting."
 	exit 1
 fi
@@ -32,8 +36,14 @@ wget $sUrl
 echo "<<< end download\n"
 
 echo ">>> begin extrect archive and move files\n"
-tar -jxvf Sublime\ Text\ 2.0.2\ x64.tar.bz2
-rm Sublime\ Text\ 2.0.2\ x64.tar.bz2
+if [[ $x86f = false ]]
+then
+	tar -jxvf Sublime\ Text\ 2.0.2\ x64.tar.bz2
+	rm Sublime\ Text\ 2.0.2\ x64.tar.bz2
+else
+	tar -jxvf Sublime\ Text\ 2.0.2.tar.bz2
+	rm Sublime\ Text\ 2.0.2.tar.bz2
+fi
 
 mv Sublime\ Text\ 2 sublime
 sudo rm -f -R /opt/sublime
@@ -56,7 +66,8 @@ sudo cp sublime.desktop /usr/share/applications/sublime.desktop
 if [ $default = true ]
 then
 	echo " > set Sublime Text as default editor"
-	cd ~/.local/share/applications/
+	[ ! -d ~/.local/share ] && mkdir ~/.local/share
+	[ ! -d ~/.local/share/applications ] && mkdir ~/.local/share/applications
 	mimes[0]='application/x-perl'
 	mimes[1]='text/plain'
 	mimes[2]='text/x-chdr'
@@ -67,26 +78,40 @@ then
 	mimes[7]='text/x-python'
 	mimes[8]='text/x-sql'
 	mimes[9]='text/xml'
-	defFile="mimeapps.list"
-	for item in ${mimes[*]}
-	do
-		pattern="$(echo $item | sed -e 's/[^-A-Za-z0-9_]/\\&/g')"
-		if grep -Pq '^('$pattern')=([^;]+)(\.desktop)$' $defFile
-		then
-			sed -r 's/^('$pattern')=([^;]+)(\.desktop)$/\1=sublime\3/g' -i $defFile
-		else
-			sed '/^$/d' -i a.txt
-			sed -r 's/(\[Added Associations\])/'${pattern}'=sublime.desktop\n\n\1/' -i $defFile
-		fi
-	done
+	defFile=~/.local/share/applications/mimeapps.list
+	if [ ! -f $defFile ]
+	then
+		touch $defFile
+		echo "[Default Applications]" >> $defFile
+		for item in ${mimes[*]}
+		do
+			echo "$item=sublime.desktop" >> $defFile
+		done
+	else
+		for item in ${mimes[*]}
+		do
+			pattern="$(echo $item | sed -e 's/[^-A-Za-z0-9_]/\\&/g')"
+			if grep -Pq '^('$pattern')=([^;]+)(\.desktop)$' $defFile
+			then
+				sed -r 's/^('$pattern')=([^;]+)(\.desktop)$/\1=sublime\3/g' -i $defFile
+			else
+				sed -r 's/(\[Added Associations\])/'${pattern}'=sublime.desktop\n\n\1/' -i $defFile
+			fi
+		done
+	fi
 fi
 
 echo " > installing package control"
-if [[ !$(wget https://sublime.wbond.net/Package%20Control.sublime-package) ]]
+if ! wget --spider https://sublime.wbond.net/Package%20Control.sublime-package 2>&1 | grep --quiet "200 OK"
 then
 	echo "ERROR: Could not download Package Control."
 	echo " You have to install it and all packeges manually. See Readme."
 else
+	if [ ! -d ~/.config/sublime-text2 ]
+	then
+		mkdir ~/.config/sublime-text-2
+		mkdir ~/.config/sublime-text-2/Packages
+	fi
 	wget -q https://sublime.wbond.net/Package%20Control.sublime-package
 	mv Package\ Control.sublime-package ~/.config/sublime-text-2/Packages/Package\ Control.sublime-package
 

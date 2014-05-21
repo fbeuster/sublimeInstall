@@ -13,9 +13,9 @@ $ ./install_sublime
 Possible flags
 
 ```
--d   : not setting it as default editor
--l   : don't install LaTeXTools
--x86 : use 32bit
+-d : not setting it as default editor
+-l : don't install LaTeXTools
+-x : use 32bit
 ```
 
 Packages
@@ -34,8 +34,8 @@ The following packages were installed via script or Package Control:
 * [More Layouts](https://github.com/unknownuser88/morelayouts)
 * [PHPDoc](https://github.com/SublimeText/PhpDoc)
 * [QouteHTML](https://github.com/mutian/Sublime-Quote-HTML)
-* [SFTP CUstom Commands] (https://github.com/FBeuster/SFTP-Custom-Commands)
-* [Theme - Brogrammer] (https://github.com/fbeuster/brogrammer-theme)
+* [SFTP CUstom Commands](https://github.com/FBeuster/SFTP-Custom-Commands)
+* [Theme - Brogrammer](https://github.com/fbeuster/brogrammer-theme)
 
 Notes
 -----
