@@ -22,7 +22,7 @@ echo " <{ Installation of Sublime Text 2 }> \n"
 dir=$(dirname -- $(readlink -fn -- "$0"))
 
 echo ">>> begin download of Sublime Text 2\n"
-if [[ !$(wget --spider -q $sUrl) ]]
+if wget --spider $sUrl 2>&1 | grep --quiet "200 OK"
 then
 	echo "ERROR: Unable to download SUblime Text 2."
 	echo "Exiting."
