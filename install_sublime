@@ -111,9 +111,10 @@ else
 	then
 		mkdir ~/.config/sublime-text-2
 		mkdir ~/.config/sublime-text-2/Packages
+		mkdir ~/.config/sublime-text-2/Installed\ Packages
 	fi
 	wget -q https://sublime.wbond.net/Package%20Control.sublime-package
-	mv Package\ Control.sublime-package ~/.config/sublime-text-2/Packages/Package\ Control.sublime-package
+	mv Package\ Control.sublime-package ~/.config/sublime-text-2/Installed\ Packages/Package\ Control.sublime-package
 
 	echo " > installing packages"
 
