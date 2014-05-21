@@ -33,6 +33,7 @@ The following packages were installed via script or Package Control:
 * [More Layouts](https://github.com/unknownuser88/morelayouts)
 * [PHPDoc](https://github.com/SublimeText/PhpDoc)
 * [QouteHTML](https://github.com/mutian/Sublime-Quote-HTML)
+* [SFTP CUstom Commands] (https://github.com/FBeuster/SFTP-Custom-Commands)
 * [Theme - Brogrammer] (https://github.com/fbeuster/brogrammer-theme)
 
 Notes

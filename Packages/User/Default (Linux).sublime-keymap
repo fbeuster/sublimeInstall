@@ -1,3 +1,8 @@
 [
-	{ "keys": ["alt+1"], "command": "sftp_browse_server" }
+	{ "keys": ["ctrl+alt+1"], "command": "sftp_browse_server" },
+	{ "keys": ["ctrl+alt+2"], "command": "sftp_sync_down" },
+	{ "keys": ["ctrl+alt+3"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+	{ "keys": ["ctrl+alt+4"], "command": "sftp_show_panel" },
+	{ "keys": ["ctrl+alt+5"], "command": "sync_down_tabs" },
+	{ "keys": ["ctrl+alt+6"], "command": "sync_down_windows" }
 ]

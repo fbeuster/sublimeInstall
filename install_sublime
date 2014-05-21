@@ -155,6 +155,13 @@ else
 	mv Sublime-Quote-HTML/* ~/.config/sublime-text-2/Packages/QuoteHTML/
 	echo "   - moved QuoteHTML"
 
+	# SFTP Custom Commands
+	git clone https://github.com/FBeuster/SFTP-Custom-Commands.git
+	rm -Rf SFTP-Custom-Commands/.git
+	mkdir ~/.config/sublime-text-2/Packages/SFTP\ Custom\ Commands
+	mv SFTP-Custom-Commands/* ~/.config/sublime-text-2/Packages/SFTP\ Custom\ Commands/
+	echo "   - moved SFTP Custom Commands"
+
 	# Theme - Brogrammer
 	git clone https://github.com/FBeuster/brogrammer-theme.git
 	rm -Rf brogrammer-theme/.git
