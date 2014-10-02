@@ -2,6 +2,7 @@
 	"color_scheme": "Packages/Color Scheme - Default/beusterse.tmTheme",
 	"dictionary": "Packages/Language - German/German_de_DE.dic",
 	"font_size": 11,
+	"font_face": "Source Code Pro Medium",
 	"ignored_packages":
 	[
 		"Vintage"

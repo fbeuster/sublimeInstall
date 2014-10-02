@@ -53,6 +53,17 @@ sudo chown -R root:root sublime
 sudo chmod -R +r sublime
 echo "<<< end extract and move\n"
 
+echo ">>> begin installing Source Code Pro"
+
+wget http://downloads.sourceforge.net/project/sourcecodepro.adobe/SourceCodePro_FontsOnly-1.017.zip
+unzip SourceCodePro_FontsOnly-1.017.zip
+mkdir -p ~/.fonts
+cp SourceCodePro_FontsOnly-1.017/OTF/*.otf ~/.fonts
+fc-cache -f -v
+rm -rf SourceCodePro_FontsOnly-1.017
+
+echo ">>> end installing Source Code Pro"
+
 echo ">>> begin configuration\n"
 cd $dir
 
