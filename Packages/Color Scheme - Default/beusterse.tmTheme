@@ -6,57 +6,21 @@
 	<string>beuster|se Theme</string>
 	<key>settings</key>
 	<array>
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_ff0000FF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#ff0000FF</string>
-<key>caret</key>
-<string>#FFFFFFFF</string>
-<key>foreground</key>
-<string>#FFFFFFFF</string>
-</dict>
-</dict>
-
-
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_CEDF99FF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#CEDF99FF</string>
-<key>caret</key>
-<string>#000000FF</string>
-<key>foreground</key>
-<string>#000000FF</string>
-</dict>
-</dict>
-
-
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_3F3F3FFF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#3F3F3FFF</string>
-<key>caret</key>
-<string>#FFFFFFFF</string>
-<key>foreground</key>
-<string>#FFFFFFFF</string>
-</dict>
-</dict>
-
-
+		<dict>
+			<key>name</key>
+			<string>mon_color</string>
+			<key>scope</key>
+			<string>mcol_3F3F3FFF</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#3F3F3FFF</string>
+				<key>caret</key>
+				<string>#FFFFFFFF</string>
+				<key>foreground</key>
+				<string>#FFFFFFFF</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>settings</key>
 			<dict>
@@ -239,7 +203,7 @@
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
-				<string>#f8f8f2</string>
+				<string>#BBBBFF</string>
 			</dict>
 		</dict>
 		<dict>
