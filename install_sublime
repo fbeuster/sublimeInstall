@@ -170,10 +170,10 @@ else
 	# LaTeXTools
 	if [ $latex = true ]
 	then
-		sudo apt-get install texlive latexmk
+		sudo apt-get install texlive texlive-latex-extra latexmk pgf
 		git clone https://github.com/SublimeText/LaTeXTools.git
 		rm -Rf LaTeXTools/.git
-		mv LaTeXTools ~/-config/sublime-text-2/Packages/
+		mv LaTeXTools ~/.config/sublime-text-2/Packages/
 		echo "   - moved LaTeXTools"
 	fi
 
@@ -211,6 +211,7 @@ else
 	mv brogrammer-theme/* ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer/
 	echo "   - moved Theme - Brogrammer"
 
+	touch ~/.config/sublime-text-2/Packages/Theme\ -\ Default/Widget.sublime-settings
 	cat >~/.config/sublime-text-2/Packages/Theme\ -\ Default/Widget.sublime-settings <<EOF
 {
 	"color_scheme": "Packages/Theme - Brogrammer/Widgets.stTheme"
