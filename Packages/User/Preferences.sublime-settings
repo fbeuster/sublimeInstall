@@ -1,12 +1,13 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/beusterse.tmTheme",
-	"dictionary": "Packages/Language - German/German_de_DE.dic",
-	"font_size": 11,
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"font_face": "Source Code Pro Medium",
+	"font_size": 12,
 	"ignored_packages":
 	[
+		"jQuery",
 		"Vintage"
 	],
 	"show_full_path": false,
-  	"theme": "Brogrammer.sublime-theme"
+	"theme": "Brogrammer.sublime-theme"
 }

@@ -154,12 +154,25 @@ else
 	mv ColorSchemeEditor ~/.config/sublime-text-2/Packages/
 	echo "   - moved ColorSchemeEditor"
 
+	# D3.js Snippets
+	git clone https://github.com/fabriciotav/d3-snippets-for-sublime-text-2.git
+	rm -Rf d3-snippets-for-sublime-text-2/.git
+	mkdir ~/.config/sublime-text-2/Packages/D3.js\ Snippets
+	mv d3-snippets-for-sublime-text-2/ ~/.config/sublime-text-2/Packages/
+	echo "   - moved D3.js Snippets"
+
 	# Emmet
 	git clone https://github.com/sergeche/emmet-sublime.git
 	rm -Rf emmet-sublime/.git
 	mkdir ~/.config/sublime-text-2/Packages/Emmet
 	mv emmet-sublime/* ~/.config/sublime-text-2/Packages/Emmet/
 	echo "   - moved Emmet"
+
+	# GitGutter
+	git clone https://github.com/jisaacks/GitGutter.git
+	rm -Rf GitGutter/.git
+	mv GitGutter ~/.config/sublime-text-2/Packages/
+	echo "   - moved GitGutter"
 
 	# jQuery (some snippets)
 	git clone https://github.com/SublimeText/jQuery.git
@@ -196,6 +209,13 @@ else
 	mkdir ~/.config/sublime-text-2/Packages/QuoteHTML
 	mv Sublime-Quote-HTML/* ~/.config/sublime-text-2/Packages/QuoteHTML/
 	echo "   - moved QuoteHTML"
+
+	# SASS
+	git clone https://github.com/nathos/sass-textmate-bundle.git
+	rm -Rf sass-textmate-bundle/.git
+	mkdir ~/.config/sublime-text-2/Packages/Sass
+	mv sass-textmate-bundle/* ~/.config/sublime-text-2/Packages/Sass/
+	echo "   - moved SASS"
 
 	# SFTP Custom Commands
 	git clone https://github.com/FBeuster/SFTP-Custom-Commands.git
