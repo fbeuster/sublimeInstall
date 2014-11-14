@@ -1,14 +1,18 @@
 #!/bin/bash
 
 # urls
-x86=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.tar.bz2
-x64=http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64.tar.bz2
+x86=http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3065_x32.tar.bz2
+x64=http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3065_x64.tar.bz2
 sUrl=$x64
 
 # flag handling
 default=true
 latex=true
 x86f=false
+
+# vars
+configDir=~/.config/sublime-text-3
+packageDir=$configDir/Packages
 
 while getopts ":dlx" opt; do
 	case $opt in
@@ -21,14 +25,14 @@ while getopts ":dlx" opt; do
 	esac
 done
 
-echo " <{ Installation of Sublime Text 2 }> \n"
+echo " <{ Installation of Sublime Text 3 }> \n"
 
 dir=$(dirname -- $(readlink -fn -- "$0"))
 
-echo ">>> begin download of Sublime Text 2\n"
+echo ">>> begin download of Sublime Text 3\n"
 if ! wget --spider $sUrl 2>&1 | grep --quiet "200 OK"
 then
-	echo "ERROR: Unable to download Sublime Text 2."
+	echo "ERROR: Unable to download Sublime Text 3."
 	echo "Exiting."
 	exit 1
 fi
@@ -38,14 +42,14 @@ echo "<<< end download\n"
 echo ">>> begin extrect archive and move files\n"
 if [[ $x86f = false ]]
 then
-	tar -jxvf Sublime\ Text\ 2.0.2\ x64.tar.bz2
-	rm Sublime\ Text\ 2.0.2\ x64.tar.bz2
+	tar -jxvf sublime_text_3_build_3065_x64.tar.bz2
+	rm sublime_text_3_build_3065_x64.tar.bz2
 else
-	tar -jxvf Sublime\ Text\ 2.0.2.tar.bz2
-	rm Sublime\ Text\ 2.0.2.tar.bz2
+	tar -jxvf sublime_text_3_build_3065_x32.tar.bz2
+	rm sublime_text_3_build_3065_x32.tar.bz2
 fi
 
-mv Sublime\ Text\ 2 sublime
+mv sublime_text_3 sublime
 sudo rm -f -R /opt/sublime
 sudo mv sublime /opt
 cd /opt
@@ -118,19 +122,19 @@ then
 	echo "ERROR: Could not download Package Control."
 	echo " You have to install it and all packeges manually. See Readme."
 else
-	if [ ! -d ~/.config/sublime-text2 ]
+	if [ ! -d $configDir ]
 	then
-		mkdir ~/.config/sublime-text-2
-		mkdir ~/.config/sublime-text-2/Packages
-		mkdir ~/.config/sublime-text-2/Installed\ Packages
+		mkdir $configDir
+		mkdir $configDir/Packages
+		mkdir $configDir/Installed\ Packages
 	fi
 	wget -q https://sublime.wbond.net/Package%20Control.sublime-package
-	mv Package\ Control.sublime-package ~/.config/sublime-text-2/Installed\ Packages/Package\ Control.sublime-package
+	mv Package\ Control.sublime-package $configDir/Installed\ Packages/Package\ Control.sublime-package
 
 	echo " > installing packages"
 
 	# Theme and user seetings
-	cp -R Packages/ ~/.config/sublime-text-2/
+	cp -R Packages/ $configDir/
 	echo "   - moved theme and defaults"
 
 	# SFTP
@@ -139,45 +143,45 @@ else
 	# ColorHighlighter
 	git clone https://github.com/Monnoroch/ColorHighlighter.git
 	rm -Rf ColorHighlighter/.git
-	mv ColorHighlighter ~/.config/sublime-text-2/Packages/
+	mv ColorHighlighter $packageDir/
 	echo "   - moved ColorHighlighter"
 
 	# ColorPicker
 	git clone https://github.com/weslly/ColorPicker.git
 	rm -Rf ColorPicker/.git
-	mv ColorPicker ~/.config/sublime-text-2/Packages/
+	mv ColorPicker $packageDir/
 	echo "   - moved ColorPicker"
 
 	# ColorSchemeEditor
 	git clone https://github.com/bobef/ColorSchemeEditor.git
 	rm -Rf ColorSchemeEditor/.git
-	mv ColorSchemeEditor ~/.config/sublime-text-2/Packages/
+	mv ColorSchemeEditor $packageDir/
 	echo "   - moved ColorSchemeEditor"
 
 	# D3.js Snippets
 	git clone https://github.com/fabriciotav/d3-snippets-for-sublime-text-2.git
 	rm -Rf d3-snippets-for-sublime-text-2/.git
-	mkdir ~/.config/sublime-text-2/Packages/D3.js\ Snippets
-	mv d3-snippets-for-sublime-text-2/ ~/.config/sublime-text-2/Packages/
+	mkdir $packageDir/D3.js\ Snippets
+	mv d3-snippets-for-sublime-text-2/ $packageDir/D3.js\ Snippets
 	echo "   - moved D3.js Snippets"
 
 	# Emmet
 	git clone https://github.com/sergeche/emmet-sublime.git
 	rm -Rf emmet-sublime/.git
-	mkdir ~/.config/sublime-text-2/Packages/Emmet
-	mv emmet-sublime/* ~/.config/sublime-text-2/Packages/Emmet/
+	mkdir $packageDir/Emmet
+	mv emmet-sublime/* $packageDir/Emmet/
 	echo "   - moved Emmet"
 
 	# GitGutter
 	git clone https://github.com/jisaacks/GitGutter.git
 	rm -Rf GitGutter/.git
-	mv GitGutter ~/.config/sublime-text-2/Packages/
+	mv GitGutter $packageDir/
 	echo "   - moved GitGutter"
 
 	# jQuery (some snippets)
 	git clone https://github.com/SublimeText/jQuery.git
 	rm -Rf jQuery/.git
-	mv jQuery ~/.config/sublime-text-2/Packages/
+	mv jQuery $packageDir/
 	echo "   - moved jQuery"
 
 	# LaTeXTools
@@ -186,53 +190,53 @@ else
 		sudo apt-get install texlive texlive-latex-extra latexmk pgf
 		git clone https://github.com/SublimeText/LaTeXTools.git
 		rm -Rf LaTeXTools/.git
-		mv LaTeXTools ~/.config/sublime-text-2/Packages/
+		mv LaTeXTools $packageDir/
 		echo "   - moved LaTeXTools"
 	fi
 
 	# More Layouts
 	git clone https://github.com/unknownuser88/morelayouts.git
 	rm -Rf morelayouts/.git
-	mkdir ~/.config/sublime-text-2/Packages/More\ Layouts
-	mv morelayouts/* ~/.config/sublime-text-2/Packages/More\ Layouts/
+	mkdir $packageDir/More\ Layouts
+	mv morelayouts/* $packageDir/More\ Layouts/
 	echo "   - moved More Layouts"
 
 	# PHPDoc
 	git clone https://github.com/SublimeText/PhpDoc.git
 	rm -Rf PhpDoc/.git
-	mv PhpDoc ~/.config/sublime-text-2/Packages/
+	mv PhpDoc $packageDir/
 	echo "   - moved PHPDoc"
 
 	# QuoteHTML
 	git clone https://github.com/mutian/Sublime-Quote-HTML.git
 	rm -Rf Sublime-Quote-HTML/.git
-	mkdir ~/.config/sublime-text-2/Packages/QuoteHTML
-	mv Sublime-Quote-HTML/* ~/.config/sublime-text-2/Packages/QuoteHTML/
+	mkdir $packageDir/QuoteHTML
+	mv Sublime-Quote-HTML/* $packageDir/QuoteHTML/
 	echo "   - moved QuoteHTML"
 
 	# SASS
 	git clone https://github.com/nathos/sass-textmate-bundle.git
 	rm -Rf sass-textmate-bundle/.git
-	mkdir ~/.config/sublime-text-2/Packages/Sass
-	mv sass-textmate-bundle/* ~/.config/sublime-text-2/Packages/Sass/
+	mkdir $packageDir/Sass
+	mv sass-textmate-bundle/* $packageDir/Sass/
 	echo "   - moved SASS"
 
 	# SFTP Custom Commands
 	git clone https://github.com/FBeuster/SFTP-Custom-Commands.git
 	rm -Rf SFTP-Custom-Commands/.git
-	mkdir ~/.config/sublime-text-2/Packages/SFTP\ Custom\ Commands
-	mv SFTP-Custom-Commands/* ~/.config/sublime-text-2/Packages/SFTP\ Custom\ Commands/
+	mkdir $packageDir/SFTP\ Custom\ Commands
+	mv SFTP-Custom-Commands/* $packageDir/SFTP\ Custom\ Commands/
 	echo "   - moved SFTP Custom Commands"
 
 	# Theme - Brogrammer
 	git clone https://github.com/FBeuster/brogrammer-theme.git
 	rm -Rf brogrammer-theme/.git
-	mkdir ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer
-	mv brogrammer-theme/* ~/.config/sublime-text-2/Packages/Theme\ -\ Brogrammer/
+	mkdir $packageDir/Theme\ -\ Brogrammer
+	mv brogrammer-theme/* $packageDir/Theme\ -\ Brogrammer/
 	echo "   - moved Theme - Brogrammer"
 
-	touch ~/.config/sublime-text-2/Packages/Theme\ -\ Default/Widget.sublime-settings
-	cat >~/.config/sublime-text-2/Packages/Theme\ -\ Default/Widget.sublime-settings <<EOF
+	touch $packageDir/Theme\ -\ Default/Widget.sublime-settings
+	cat >$packageDir/Theme\ -\ Default/Widget.sublime-settings <<EOF
 {
 	"color_scheme": "Packages/Theme - Brogrammer/Widgets.stTheme"
 }

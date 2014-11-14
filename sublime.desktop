@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Sublime Text
 Encoding=UTF-8
-Comment=Sublime Text 2
+Comment=Sublime Text 3
 Exec=sublime_text %U
 Terminal=false
 Type=Application
 MimeType=text/plain;
 StartupNotify=true
-Icon=/opt/sublime/Icon/256x256/sublime_text.png
+Icon=/opt/sublime/Icon/256x256/sublime-text.png
 Categories=GNOME;GTK;Utility;TextEditor;
