@@ -14,6 +14,13 @@ x86f=false
 configDir=~/.config/sublime-text-3
 packageDir=$configDir/Packages
 
+if [ "$(id -u)" != "0" ]
+then
+	echo "ERROR: I want sudo!"
+	echo "Exiting."
+	exit
+fi
+
 while getopts ":dlx" opt; do
 	case $opt in
 		d)	default=false	;;
@@ -162,7 +169,8 @@ else
 	git clone https://github.com/fabriciotav/d3-snippets-for-sublime-text-2.git
 	rm -Rf d3-snippets-for-sublime-text-2/.git
 	mkdir $packageDir/D3.js\ Snippets
-	mv d3-snippets-for-sublime-text-2/ $packageDir/D3.js\ Snippets
+	mv d3-snippets-for-sublime-text-2/* $packageDir/D3.js\ Snippets
+	rm -Rf d3-snippets-for-sublime-text-2
 	echo "   - moved D3.js Snippets"
 
 	# Emmet
@@ -170,6 +178,7 @@ else
 	rm -Rf emmet-sublime/.git
 	mkdir $packageDir/Emmet
 	mv emmet-sublime/* $packageDir/Emmet/
+	rm -Rf emmet-sublime
 	echo "   - moved Emmet"
 
 	# GitGutter
@@ -199,6 +208,7 @@ else
 	rm -Rf morelayouts/.git
 	mkdir $packageDir/More\ Layouts
 	mv morelayouts/* $packageDir/More\ Layouts/
+	rm -Rf morelayouts
 	echo "   - moved More Layouts"
 
 	# PHPDoc
@@ -212,6 +222,7 @@ else
 	rm -Rf Sublime-Quote-HTML/.git
 	mkdir $packageDir/QuoteHTML
 	mv Sublime-Quote-HTML/* $packageDir/QuoteHTML/
+	rm -Rf Sublime-Quote-HTML
 	echo "   - moved QuoteHTML"
 
 	# SASS
@@ -219,6 +230,7 @@ else
 	rm -Rf sass-textmate-bundle/.git
 	mkdir $packageDir/Sass
 	mv sass-textmate-bundle/* $packageDir/Sass/
+	rm -Rf sass-textmate-bundle
 	echo "   - moved SASS"
 
 	# SFTP Custom Commands
@@ -226,6 +238,7 @@ else
 	rm -Rf SFTP-Custom-Commands/.git
 	mkdir $packageDir/SFTP\ Custom\ Commands
 	mv SFTP-Custom-Commands/* $packageDir/SFTP\ Custom\ Commands/
+	rm -Rf SFTP-Custom-Commands
 	echo "   - moved SFTP Custom Commands"
 
 	# Theme - Brogrammer
@@ -233,8 +246,13 @@ else
 	rm -Rf brogrammer-theme/.git
 	mkdir $packageDir/Theme\ -\ Brogrammer
 	mv brogrammer-theme/* $packageDir/Theme\ -\ Brogrammer/
+	rm -Rf brogrammer-theme
 	echo "   - moved Theme - Brogrammer"
 
+	if [ ! -d $packageDir/Theme\ -\ Default ]
+	then
+		mkdir $packageDir/Theme\ -\ Default
+	fi
 	touch $packageDir/Theme\ -\ Default/Widget.sublime-settings
 	cat >$packageDir/Theme\ -\ Default/Widget.sublime-settings <<EOF
 {
@@ -243,6 +261,8 @@ else
 EOF
 	echo "   - configured Theme - Brogrammer"
 
+	# Give the user his rights back.
+	sudo chown -R $SUDO_USER:$SUDO_USER $configDir
 
 fi
 
